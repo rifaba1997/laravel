@@ -1,17 +1,9 @@
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class CatalogController extends Controller
-{
-    private $arrayPeliculas = array(
+private $arrayPeliculas = array(
 		array(
 			'title' => 'El padrino',
 			'year' => '1972', 
 			'director' => 'Francis Ford Coppola', 
-			'poster' => 'https://http2.mlstatic.com/posters-el-padrino-the-godfather-scarface-D_NQ_NP_813894-MLA30094099674_042019-F.jpg', 
+			'poster' => 'http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg', 
 			'rented' => false, 
 			'synopsis' => 'Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Freddie (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de \'Il consigliere\' Tom Hagen (Robert Duvall), se niega a intervenir en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas.'
 		),
@@ -19,7 +11,7 @@ class CatalogController extends Controller
 			'title' => 'El Padrino. Parte II',
 			'year' => '1974', 
 			'director' => 'Francis Ford Coppola', 
-			'poster' => 'http://es.web.img3.acsta.net/r_1920_1080/medias/nmedia/18/68/09/06/20197890.jpg', 
+			'poster' => 'http://ia.media-imdb.com/images/M/MV5BNDc2NTM3MzU1Nl5BMl5BanBnXkFtZTcwMTA5Mzg3OA@@._V1_SX214_AL_.jpg', 
 			'rented' => false, 
 			'synopsis' => 'Continuación de la historia de los Corleone por medio de dos historias paralelas: la elección de Michael Corleone como jefe de los negocios familiares y los orígenes del patriarca, el ya fallecido Don Vito, primero en Sicilia y luego en Estados Unidos, donde, empezando desde abajo, llegó a ser un poderosísimo jefe de la mafia de Nueva York.'
 		),
@@ -27,7 +19,7 @@ class CatalogController extends Controller
 			'title' => 'La lista de Schindler',
 			'year' => '1993', 
 			'director' => 'Steven Spielberg', 
-			'poster' => 'https://cloud10.todocoleccion.online/cine-posters-carteles/tc/2019/02/01/17/149494786.jpg', 
+			'poster' => 'http://ia.media-imdb.com/images/M/MV5BMzMwMTM4MDU2N15BMl5BanBnXkFtZTgwMzQ0MjMxMDE@._V1_SX214_AL_.jpg', 
 			'rented' => false, 
 			'synopsis' => 'Segunda Guerra Mundial (1939-1945). Oskar Schindler (Liam Neeson), un hombre de enorme astucia y talento para las relaciones públicas, organiza un ambicioso plan para ganarse la simpatía de los nazis. Después de la invasión de Polonia por los alemanes (1939), consigue, gracias a sus relaciones con los nazis, la propiedad de una fábrica de Cracovia. Allí emplea a cientos de operarios judíos, cuya explotación le hace prosperar rápidamente. Su gerente (Ben Kingsley), también judío, es el verdadero director en la sombra, pues Schindler carece completamente de conocimientos para dirigir una empresa.'
 		),
@@ -35,7 +27,7 @@ class CatalogController extends Controller
 			'title' => 'Pulp Fiction',
 			'year' => '1994', 
 			'director' => 'Quentin Tarantino', 
-			'poster' => 'https://i5.walmartimages.com/asr/fe7c0eea-4a75-49ca-b463-692bf07ecea6_1.1ad8d01582de76d3ca52fc2045bb99b6.jpeg', 
+			'poster' => 'http://ia.media-imdb.com/images/M/MV5BMjE0ODk2NjczOV5BMl5BanBnXkFtZTYwNDQ0NDg4._V1_SY317_CR4,0,214,317_AL_.jpg', 
 			'rented' => true, 
 			'synopsis' => 'Jules y Vincent, dos asesinos a sueldo con muy pocas luces, trabajan para Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse manos a la obra. Su misión: recuperar un misterioso maletín. '
 		),
@@ -167,18 +159,4 @@ class CatalogController extends Controller
 			'rented' => true, 
 			'synopsis' => 'Un joven hastiado de su gris y monótona vida lucha contra el insomnio. En un viaje en avión conoce a un carismático vendedor de jabón que sostiene una teoría muy particular: el perfeccionismo es cosa de gentes débiles; sólo la autodestrucción hace que la vida merezca la pena. Ambos deciden entonces fundar un club secreto de lucha, donde poder descargar sus frustaciones y su ira, que tendrá un éxito arrollador.'
 		)
-        );
-    public function getIndex() {
-
-        return view('catalog.index',array('arrayPeliculas'=>$this->arrayPeliculas)); 
-    }
-    public function getShow($id) {
-        return view('catalog.show', array('id'=>$id,'arrayPeliculas'=>$this->arrayPeliculas[$id])); 
-    }
-    public function getCreate() {
-        return view('catalog.create'); 
-    }
-    public function getEdit($id) {
-        return view('catalog.edit', array('id'=>$this->arrayPeliculas[$id])); 
-    }
-}
+	);
