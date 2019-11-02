@@ -1,1 +1,1 @@
-<h1>Listado peliculas</h1>
+<h1>Pelicula creada</h1>

@@ -3,33 +3,33 @@
   @section('content')
  <div class="row">       
    <div class="col-sm-4">          
-       <img src='{{$arrayPeliculas["poster"]}}' height=400/>
+       <img src='{{$arrayPeliculas->poster}}' height=400/>
          
       </div>      
    <div class="col-sm-8">           
       <div>
          <h4 style="min-height:45px;margin:5px 0 10px 0">
-         <b>{{$arrayPeliculas['title']}}</b>
+         <b>{{$arrayPeliculas->title}}</b>
          </h4>
       </div>
       <div>
          <h4 style="min-height:45px;margin:5px 0 10px 0">
-         Año: {{$arrayPeliculas['year']}}
+         Año: {{$arrayPeliculas->year}}
          </h4>
       </div>
       <div>
          <h4 style="min-height:45px;margin:5px 0 10px 0">
-         Director: {{$arrayPeliculas['director']}}
+         Director: {{$arrayPeliculas->director}}
          </h4>
       </div>
       <div>
          <p style="min-height:45px;margin:5px 0 10px 0">
-         <b>Resumen</b>: {{$arrayPeliculas['synopsis']}}
+         <b>Resumen</b>: {{$arrayPeliculas->synopsis}}
          </p>
       </div>
       <div>
          <p style="min-height:45px;margin:5px 0 10px 0">
-            @if($arrayPeliculas['rented'])
+            @if($arrayPeliculas->rented)
                <b>Estado</b>: Pelicula Actualmente alquilada
             @else 
                <b>Estado</b>: Pelicula Disponible
@@ -39,13 +39,13 @@
       </div> 
       
       <div>
-            @if($arrayPeliculas['rented'])
+            @if($arrayPeliculas->rented)
                <a class="btn btn-danger" href='#' role='button'>Devolver Pelicula</a>
             @else 
             <a class="btn btn-primary" href='#' role='button'>Alquilar Pelicula</a>
             @endif
       
-         <a class="btn btn-warning" href='{{url("/catalog/edit/".$id)}}' role='button'>
+         <a class="btn btn-warning" href='{{url("/catalog/edit/".$arrayPeliculas->id)}}' role='button'>
             <i class="fas fa-pen"></i>
             Editar Pelicula
          </a>

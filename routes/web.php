@@ -65,14 +65,22 @@ Route::get('/catalog/edit/{id}', function ($id) {
 */
 Route::get('/','HomeController@getHome' );
 
-Route::get('/auth', function () {
-    return view('auth.login');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/auth', function () {
+        return view('auth.login');
+    });
+    
+    Route::get('/catalog','CatalogController@getIndex' );
+    
+    Route::get('/catalog/show/{id}','CatalogController@getShow');
+    
+    Route::get('/catalog/create','CatalogController@postCreate' );
+    
+    Route::get('/catalog/edit/{id}','CatalogController@putEdit');
+
 });
-
-Route::get('/catalog','CatalogController@getIndex' );
-
-Route::get('/catalog/show/{id}','CatalogController@getShow');
-
-Route::get('/catalog/create','CatalogController@getCreate' );
-
-Route::get('/catalog/edit/{id}','CatalogController@getEdit');

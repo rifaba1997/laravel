@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Movie;
+use App\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -47,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Cadena perpetua',
             'year' => '1994', 
             'director' => 'Frank Darabont', 
-            'poster' => 'http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX214_AL_.jpg', 
+            'poster' => 'https://pics.filmaffinity.com/Cadena_perpetua-576140557-large.jpg', 
             'rented' => true, 
             'synopsis' => 'Acusado del asesinato de su mujer, Andrew Dufresne (Tim Robbins), tras ser condenado a cadena perpetua, es enviado a la cárcel de Shawshank. Con el paso de los años conseguirá ganarse la confianza del director del centro y el respeto de sus compañeros de prisión, especialmente de Red (Morgan Freeman), el jefe de la mafia de los sobornos.'
         ),
@@ -175,7 +176,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
                 // $this->call(UsersTableSeeder::class);
-        self::seedCatalog();$this->command->info('Tabla catalogo inicializada con datos!');
+        //self::seedCatalog();$this->command->info('Tabla catalogo inicializada con datos!');
+        self::seedUsers();$this->command->info('Tabla Usuarios inicializada con datos!');
     }
     
     private function seedCatalog(){
@@ -189,6 +191,16 @@ class DatabaseSeeder extends Seeder
             $p->rented = $pelicula['rented'];
             $p->synopsis = $pelicula['synopsis']; $p->save();
         }
+
+    }
+
+    private function seedUsers(){
+        DB::table('users')->delete();
+        $u= new User;
+        $u->name='Ricardo Bastidas';
+        $u->email='prueba@email.com';
+        $u->password=bcrypt('1234');
+        $u->save();
 
     }
 }
