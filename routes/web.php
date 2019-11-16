@@ -68,7 +68,7 @@ Route::get('/','HomeController@getHome' );
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+#Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/auth', function () {
@@ -79,8 +79,12 @@ Route::group(['middleware'=>'auth'],function(){
     
     Route::get('/catalog/show/{id}','CatalogController@getShow');
     
-    Route::get('/catalog/create','CatalogController@postCreate' );
+    Route::get('/catalog/create','CatalogController@getCreate' );
     
-    Route::get('/catalog/edit/{id}','CatalogController@putEdit');
+    Route::get('/catalog/edit/{id}','CatalogController@getEdit');
+    
+    Route::post('/catalog/create','CatalogController@postCreate');
+    
+    Route::put('/catalog/edit/{id}','CatalogController@putEdit');
 
 });

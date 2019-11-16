@@ -8,11 +8,12 @@
             Modificar Pelicula
          </div>
          <div class="card-body" style="padding:30px">
-
-            <form action="" method="get">
+           
+            <form action="" method="post">
 
             @csrf
             {{method_field('PUT')}}
+            
 
             <div class="form-group">
                <label for="title">Título</label>

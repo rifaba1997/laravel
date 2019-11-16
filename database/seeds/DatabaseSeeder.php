@@ -176,7 +176,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
                 // $this->call(UsersTableSeeder::class);
-        //self::seedCatalog();$this->command->info('Tabla catalogo inicializada con datos!');
+        self::seedCatalog();$this->command->info('Tabla catalogo inicializada con datos!');
         self::seedUsers();$this->command->info('Tabla Usuarios inicializada con datos!');
     }
     

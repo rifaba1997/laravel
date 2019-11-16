@@ -4,8 +4,69 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b03462bcc3ae498d4580c115e843d04",
+    "content-hash": "b979de89fc21883853bf290b8a2aa624",
     "packages": [
+        {
+            "name": "coderatio/laranotify",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coderatio/laranotify.git",
+                "reference": "1368d21a8f999b049f83558753927c1dfafb3b49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coderatio/laranotify/zipball/1368d21a8f999b049f83558753927c1dfafb3b49",
+                "reference": "1368d21a8f999b049f83558753927c1dfafb3b49",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=4.0",
+                "php": ">=5.6.0"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Coderatio\\Laranotify\\LaranotifyServiceProvider"
+                    ],
+                    "aliases": {
+                        "Notify": "Coderatio\\Laranotify\\Facades\\Notify",
+                        "Laranotify": "Coderatio\\Laranotify\\Facades\\Laranotify"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Coderatio\\Laranotify\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josiah Ovye Yahaya",
+                    "email": "josiahoyahaya@gmail.com"
+                }
+            ],
+            "description": "The most advanced laravel package to dynamically display beautiful and elegant alert messages, blockables and notifications on screen. This is built with fluency in mind--meaning, you can chain as many methods as you want. Lots of functionalities are available.",
+            "keywords": [
+                "Bootstrap Notify",
+                "Code9ja",
+                "Coderatio",
+                "Laranotify",
+                "Laravel Framework",
+                "Larnotify",
+                "lara",
+                "laravel",
+                "laravel notification",
+                "notifier",
+                "notify"
+            ],
+            "time": "2018-03-02T11:03:45+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

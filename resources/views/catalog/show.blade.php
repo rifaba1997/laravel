@@ -49,6 +49,10 @@
             <i class="fas fa-pen"></i>
             Editar Pelicula
          </a>
+         <a class="btn btn-danger" href="/catalog" role='button'>
+            <i class="fas fa-times"></i>
+            Eliminar pelicula
+         </a>
          <a class="btn btn-outline-dark" href='{{url("/catalog/")}}' role='button'>
             <i class="fas fa-angle-left"></i>
             Volver listado

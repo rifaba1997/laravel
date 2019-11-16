@@ -18,17 +18,35 @@ class CatalogController extends Controller
         $peliculas = Movie::all();
         return view('catalog.show', array('arrayPeliculas'=>$peliculas[$id-1])); 
     }
-    public function postCreate(Request $request) {
-        $p=new Movie;
-            $p->title='';
-            $p->year='';
-            $p->director = '';
-            $p->poster ='';
-            $p->synopsis = ''; $p->save();
-        return view('catalog'); 
+    public function getCreate(Request $request) {
+        return view('catalog.create'); 
     }
-    public function putEdit(Request $request,$id) {
+    public function getEdit(Request $request,$id) {
         $peliculas = Movie::FindOrFail($id);
         return view('catalog.edit', array('peliculas'=>$peliculas)); 
+    }
+    public function postCreate(Request $request){
+        $newMovie = new Movie;
+        $newMovie->title = $request->input('title');
+        $newMovie->year = $request->input('year');
+        $newMovie->director = $request->input('director');
+        $newMovie->poster = $request->input('poster');
+        $newMovie->synopsis = $request->input('synopsis');
+        $newMovie->save();
+        notify('Pelicula creada con exito')->type('success');
+        return redirect()->action('CatalogController@getIndex');
+    }
+    public function putEdit(Request $request,$id){
+        $editMovie = Movie::FindOrFail($id);
+        $editMovie->title = $request->input('title');
+        $editMovie->year = $request->input('year');
+        $editMovie->director = $request->input('director');
+        $editMovie->poster = $request->input('poster');
+        $editMovie->synopsis = $request->input('synopsis');
+        $editMovie->save();
+        notify('Pelicula editada con exito')->type('success');
+        return redirect()->action('CatalogController@getShow',$id);
+        
+        
     }
 }
